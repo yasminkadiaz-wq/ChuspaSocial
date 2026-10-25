@@ -2,6 +2,8 @@
 name: Moodle Plugin CI
 
 on:
+  push:
+    branches: [ci/prueba-mustache-157]
   pull_request:
     branches:
       - dev
