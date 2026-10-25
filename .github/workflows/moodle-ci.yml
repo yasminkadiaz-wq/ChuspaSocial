@@ -74,7 +74,7 @@ jobs:
 
       - name: Run mustache
         if: ${{ !cancelled() }}
-        run: moodle-plugin-ci mustache ./plugin/src
+        run: moodle-plugin-ci mustache
         env:
           MOODLE_BRANCH: MOODLE_405_STABLE
 
