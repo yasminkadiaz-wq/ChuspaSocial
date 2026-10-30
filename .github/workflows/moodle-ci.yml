@@ -74,6 +74,11 @@ jobs:
 
           echo "$GITHUB_WORKSPACE/ci/bin" >> "$GITHUB_PATH"
           echo "$GITHUB_WORKSPACE/ci/vendor/bin" >> "$GITHUB_PATH"
+          
+      - name: Install locale en_AU.UTF-8
+        run: |
+          sudo locale-gen en_AU.UTF-8
+          sudo update-locale
 
       - name: Install Moodle and plugin
         run: |
@@ -87,7 +92,7 @@ jobs:
         env:
           DB: ${{ matrix.db-type }}
           MOODLE_BRANCH: MOODLE_405_STABLE
-          
+
       - name: Run post_tags_test
         working-directory: moodle
         run: vendor/bin/phpunit local/chuspasocial/tests/local/post_tags_test.php --testdox
